@@ -22,3 +22,5 @@ CREATE TABLE [dbo].[sys_info](
 	[note] [varchar](500) NULL,
 	[manufacturer] [nchar](300) NULL
 )
+
+### Framework version: 4.6.2
