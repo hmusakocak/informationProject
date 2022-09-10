@@ -125,31 +125,19 @@ namespace sysinfo
                 textBox1.Enabled = false;
                 richTextBox1.Enabled = false;
             }
-            label7.Text = IPGlobalProperties.GetIPGlobalProperties().DomainName;
 
-            if (label7.Text.Trim() == String.Empty)
-            {
-                foreach (var item in createmos("Win32_ComputerSystem").Get())
-                {
-                    label7.Text = item["Domain"].ToString();
-                }
-            }
             foreach (var item in createmos("Win32_ComputerSystem").Get())
             {
                 label5.Text = item["Model"].ToString();
                 label18.Text = item["Manufacturer"].ToString();
                 label9.Text = item["Name"].ToString();
+                label7.Text = item["Domain"].ToString();
             }
-
-
 
             foreach (var item in createmos("Win32_OperatingSystem").Get())
             {
                 label8.Text = item["Caption"].ToString();
             }
-
-
-
 
             PowerShell PowerShellInst = PowerShell.Create();
             PowerShellInst.AddScript("Get-PhysicalDisk|Sort-Object -Property model |Select Model, MediaType, Size, BusType");
