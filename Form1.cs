@@ -57,14 +57,14 @@ namespace sysinfo
         public DmiStructureCollection structures = DMI.CreateInstance().Structures;
 
 
-        public SqlConnection conn = new SqlConnection("Server=52.166.136.119\\SERVICEDESK;Database=envanter;User Id=envanter_user;Password=Aeris**123;");
+        public SqlConnection conn = new SqlConnection(/*your database connection string*/);
 
         public void SendEmailUsingGmail(string email)
         {
 
-            MailMessage mail = new MailMessage("aerisenvanter@gmail.com", email)
+            MailMessage mail = new MailMessage(/*sender mail*/, email)
             {
-                From = new MailAddress("aerisenvanter@gmail.com", "Aeris Teknik-Envanter"),
+                From = new MailAddress(/*sender,display name*/),
                 Subject = "System Analysis of " + label5.Text,
                 Body = "<br><b><font size ='5'>ENVANTER ANALİZ</font></b>"
                         + "<hr><br>" + "CPU:     " + "<b>" + label1.Text
@@ -91,8 +91,7 @@ namespace sysinfo
                 smtpClient.Credentials =
                     new NetworkCredential()
                     {
-                        UserName = "aerisenvanter@gmail.com",
-                        Password = "bnkvrvxapfcimhid"
+                       //your gmail username and auth token
                     };
                 smtpClient.EnableSsl = true;
 
