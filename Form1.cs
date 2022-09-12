@@ -109,7 +109,7 @@ namespace sysinfo
             {
                 Ping myPing = new Ping();
                 String adres = "google.com";
-                byte[] paketboyutu = new byte[32];
+                byte[] paketboyutu = new byte[64];
                 int zamanasimi = 1000;
                 PingReply cevap = myPing.Send(adres, zamanasimi, paketboyutu);
                 label16.Visible = false;
